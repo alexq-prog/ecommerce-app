@@ -20,7 +20,7 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy React build to Nginx html folder
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=node:18-alpine /app/build /usr/share/nginx/html
 
 
 # Expose port (Cloud Run will set PORT env var)
