@@ -20,6 +20,9 @@ EXPOSE 8080
 # react-scripts start respects the PORT environment variable
 ENV PORT=8080
 
+ENV HOST=0.0.0.0
+
 # Start the application using npm start
 # Cloud Run will set the PORT environment variable automatically
 CMD ["npm", "start"]
+
