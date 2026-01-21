@@ -1,5 +1,5 @@
 # Use Node.js LTS version
-FROM node:18-alpine
+FROM node:18-alpine AS build
 
 # Set working directory
 WORKDIR /app
@@ -23,7 +23,7 @@ FROM nginx:alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy React build to Nginx html folder
-COPY --from=node:18-alpine /app/build /usr/share/nginx/html
+COPY --from=build /app/build /usr/share/nginx/html
 
 
 # Expose port (Cloud Run will set PORT env var)
