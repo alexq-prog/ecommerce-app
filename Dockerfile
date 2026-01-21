@@ -13,11 +13,14 @@ RUN npm install
 # Copy application files
 COPY . .
 
+RUN npm run build
+
 # Stage 2: serve with Nginx
 FROM nginx:alpine
 
 # Remove default nginx page
-RUN rm -rf /usr/share/nginx/html/*
+# RUN rm -rf /usr/share/nginx/html/*
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy React build to Nginx html folder
 COPY --from=node:18-alpine /app/build /usr/share/nginx/html
@@ -34,5 +37,6 @@ ENV HOST=0.0.0.0
 
 # Start the application using npm start
 # Cloud Run will set the PORT environment variable automatically
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
 
+CMD ["nginx", "-g", "daemon off;"]
