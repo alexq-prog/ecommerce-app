@@ -19,20 +19,20 @@ const Cart = ({ cart, onRemoveFromCart, onUpdateQuantity }) => {
                   <p>${item.price.toFixed(2)} each</p>
                 </div>
                 <div className="cart-item-controls">
-                  <button 
+                  <button
                     onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
                     className="quantity-btn"
                   >
                     -
                   </button>
                   <span className="quantity">{item.quantity}</span>
-                  <button 
+                  <button
                     onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
                     className="quantity-btn"
                   >
                     +
                   </button>
-                  <button 
+                  <button
                     onClick={() => onRemoveFromCart(item.id)}
                     className="remove-btn"
                   >

@@ -3,7 +3,7 @@ export const products = [
     id: 1,
     name: "Classic Potato Chips",
     price: 3.99,
-    image: "https://images.unsplash.com/photo-1606914469633-bd39206ea739?w=400&h=400&fit=crop",
+    image: "https://storage.googleapis.com/ecommerce-app-snacks/Potato-Chips.jpg",
     description: "Crispy and delicious classic potato chips"
   },
   {
